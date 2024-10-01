@@ -1,0 +1,7 @@
+<ul *ngIf="listItems$ | async as items">
+  <li *ngFor="let item of items; let i = index">
+    <input type="checkbox" [checked]="item.isCompleted" (change)="toggleComplete(item)">
+    <span [class.completed]="item.completed">{{ item.title }}</span>
+    <button (click)="deleteTask(item.id)">Delete</button>
+  </li>
+</ul>
